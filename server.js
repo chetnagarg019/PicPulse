@@ -5,19 +5,27 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 // import authRoutes from "./routes/authRoutes.js";
 import Post from "./model/postModel.js";
+import multer from "multer";
+
 
 dotenv.config();
 connectDB();
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); //data row format me ho jb use krte hai 
+
+//multer ka use jb krte hai jb data forms ke format me ho 
 
 app.get("/",(req,res) => {
     res.send("Server is runnig can  ");
 })
 
-app.post('/create-post',async (req,res) => {
+const upload = multer({ storage : multer.memoryStorage() });
+
+app.post('/create-post', upload.single("image"), async (req,res) => {
     console.log(req.body);
+    console.log(req.file);
+    
     
 })
 
