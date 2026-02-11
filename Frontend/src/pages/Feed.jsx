@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Feed = () => {
   const [posts, setPosts] = useState([
@@ -23,6 +24,13 @@ const Feed = () => {
 
 //     fetchPosts();
 //   }, []);
+   useEffect(() =>{
+     axios.get("http://localhost:5000/posts")
+     .then((res)=>{
+        // console.log(res.data);
+        setPosts(res.data.data)
+     })
+   },[])
 
   return (
     <section className="min-h-screen bg-gray-100 p-6">
