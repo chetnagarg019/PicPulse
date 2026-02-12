@@ -16,7 +16,7 @@ const CreatePost = () => {
       alert("Post created successfully");
       e.target.reset();
 
-      navigate("/feed"); // ✅ Navigate to Feed page
+      navigate("/feed"); // Navigate to Feed page
     } catch (err) {
       console.log(err);
       alert("Error creating post");
@@ -30,9 +30,7 @@ const CreatePost = () => {
           Create New Post
         </h1>
 
-        {/* 🔥 FIX: onSubmit instead of onClick */}
         <form className="space-y-5" onSubmit={handleSubmit}>
-          
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Upload Image
@@ -51,7 +49,7 @@ const CreatePost = () => {
             />
           </div>
 
-          {/* 🔥 FIX: name should be caption (backend expects caption) */}
+          {/*  FIX: name should be caption (backend expects caption) */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Caption
@@ -67,11 +65,10 @@ const CreatePost = () => {
 
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300"
+            className="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300 cursor-pointer"
           >
             Submit Post
           </button>
-
         </form>
       </div>
     </section>
