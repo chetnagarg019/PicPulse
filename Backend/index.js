@@ -44,7 +44,7 @@ app.post("/create-post", upload.single("image"), async (req, res) => {
     console.log(error);
     return res.status(500).json({
       message: "Server Error",
-    });
+    }); 
   }
 });
 
